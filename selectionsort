@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+void SELECTIONSORT(int A[], int n);
+int main()
+{const int n=10;
+ int A[n], j;
+ cout << "Enter the elements of the array: \n";
+ for(j=0; j<n; j++) cin>>A[j];
+     for(j=0; j<n; j++) cout<<A[j]<< " " ;
+     cout<<endl;
+     SELECTIONSORT(A, n);
+     for(j=0; j<n; j++) cout<<A[j]<< " " ;
+}
+void SELECTIONSORT(int A[], int n)
+{int i, j, min, temp;
+ for(j=0; j<n-1; j++)
+      { for(min=j, i=j+1; i<n; i++)
+              if(A[i]<A[min]) min=i;
+                  temp=A[j];
+                  A[j] = A[min];
+                  A[min] = temp;
+      } 
+}
+
