@@ -1,0 +1,89 @@
+
+Implementation of stack without classes
+
+#include <iostream>
+using namespace std;
+char stack1[100], stack2[100]; int n=100, top=-1;
+void push(char val, char array[100]) {
+   if(top>=n-1)
+   cout<<"Stack Overflow"<< endl;
+   else {
+      top++;
+      array[top]=val;
+   }
+}
+void pop (char array[100]) {
+   if (top<=-1)
+   cout <<"Stack Underflow"<< endl;
+   else {
+      cout<<"The popped element is "<< array[top] <<endl;
+      top--;
+   }
+}
+void display(char array[100]) {
+   if (top>=0) {
+      cout <<"Stack elements are:";
+      for (int i = top; i >= 0; i--)
+      cout<<array[i]<<" ";
+      cout<<endl;
+   } else
+   cout<<"Stack is empty";
+}
+int main() 
+{ 
+   push ('a',stack1); 
+   push ('x',stack2);
+   push ('b',stack1);
+   push ('y',stack2 );
+   push ('c',stack1); 
+   push ('z',stack2 ); 
+    display (stack1);
+    display (stack2);
+ }
+
+Output:
+Stack elements are: c  b  a    
+Stack elements are:z  y  x  
+
+
+
+Stack with classes
+//Stack  data structure
+#include  <iostream>
+#define  SIZE 10
+using namespace std;
+class stack
+{char stck[SIZE];
+  int tos;
+  public:
+  stack();
+  void push(char ch);
+  char pop();
+};
+stack::stack()
+{tos = 0;}
+void stack::push(char ch)
+{if (tos == SIZE) {cout<<"overloading"; return;}
+  stck[tos] = ch;
+  tos++;
+}
+ char stack :: pop()
+{if (tos == 0) {cout<< "stack is empty"; return 0;}
+  tos--;
+  return stck[tos];
+  }
+  int main()
+  {stack S1,S2;
+    int i;
+    S1.push('a'); 
+    S2.push('x');
+    S1.push('b');
+    S2.push('y');
+    S1.push('c'); 
+    S2.push('z'); 
+    for(i=0; i<3; i++) cout<< "a symbol from S1:"<<S1.pop()<<endl;  
+    for(i=0; i<3; i++) cout<< "a symbol from S2:"<<S2.pop()<<endl;
+    return 0;  
+   }
+
+ 
